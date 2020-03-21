@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>Welcome, please use the links or drop down menu to find student/class</h2>  
+    <h3>Students</h3>
+    <% @students.each do |s| %>
+      <p><%= s.name %> <a href="/student/<%= s.id %>">Show</a></p>
+    <% end %>
+    <form action="/find_student" method="post">
+      <select name="name">
+        <% @students.each do |s| %>
+          <option value=<%= s.name %>><%= s.name %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Find">
+    </form>
+    <br>
+    <h3>Classes</h3>
+    <% @classes.each do |c| %>
+      <p><%= c.name %> <a href="/class/<%= c.id %>">Show</a></p>
+    <% end %>
+    <form action="/find_class" method="post">
+      <select name="class">
+        <% @classes.each do |c| %>
+          <option value=<%= c.name %>><%= c.name %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Find">
+    </form>
+  </body>
+</html>
+

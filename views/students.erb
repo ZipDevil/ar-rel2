@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>Students</h2>
+    <% @students.each do |s| %>
+      <p><%= s.name %> <a href="/student/<%= s.id %>">Show</a></p>
+    <% end %>
+  </body>
+</html>

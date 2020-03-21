@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <p>class id: <%= @class.id %></p>
+    <p>class name: <%= @class.name %></p>
+    <p>instructor: <%= @class.instructor %></p>
+    <p>students:</p>
+    <ul>
+      <% @students.each do |s| %>
+        <li><%= s.name %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
