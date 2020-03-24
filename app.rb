@@ -23,12 +23,11 @@ end
     
 post '/find_class' do
     @class = CollegeClass.find_by(name: params[:name])
-    # @class = CollegeClass.find(params[:id])
-    # @students = @class.students
-    @students = []
-    if sc.college_class == @class
-        @students << @student.name
-    end
+    @students = @class.students
+    # @students = []
+    # if sc.college_class == @class
+    #     @students << @student.name
+    # end
     erb :class
 end
 
@@ -56,29 +55,15 @@ get 'classes' do
     erb :classes
 end
 
+get '/class/:id' do
+    @class = CollegeClass.find(params[:id])
+    if @class.nil?
+        return "class not found"
+    end
+    erb :class
+
 post '/show_class' do
     @class = CollegeClass.find(params[:id])
     @students = @class.students
     erb :show_class
-end
-
-
-get '/class/5' do
-    @class = CollegeClass.find(params[:id])
-    erb :class
-end
-
-get '/class/6' do
-    @class = CollegeClass.find(params[:id])
-    erb :class
-end
-
-get '/class/7' do
-    @class = CollegeClass.find(params[:id])
-    erb :class
-end
-
-get '/class/8' do
-    @class = CollegeClass.find(params[:id])
-    erb :class
 end
